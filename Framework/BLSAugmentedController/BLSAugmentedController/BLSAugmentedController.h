@@ -16,5 +16,6 @@ FOUNDATION_EXPORT const unsigned char BLSAugmentedControllerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <BLSAugmentedController/PublicHeader.h>
 
-
 #import <BLSAugmentedController/BLSAugmentedViewController.h>
+#import <BLSAugmentedController/BLSAugmentedAnnotation.h>
+#import <BLSAugmentedController/BLSAugmentedAnnotationView.h>

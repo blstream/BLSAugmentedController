@@ -226,7 +226,7 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation conformsToProtocol:@protocol(BLSAugmentedAnnotation)]) {
-        return [self.delegate viewForAnnotation:(id <BLSAugmentedAnnotation>)annotation forUserLocation:self.locationManager.location];
+        return [self.delegate augmentedViewController:self viewForAnnotation:(id <BLSAugmentedAnnotation>)annotation forUserLocation:self.locationManager.location];
     } else {
         return nil;
     }

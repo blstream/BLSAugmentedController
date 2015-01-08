@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A100E3791A5D7E630088F849 /* BLSAugmentedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A100E3771A5D7E630088F849 /* BLSAugmentedViewController.h */; };
+		A100E3791A5D7E630088F849 /* BLSAugmentedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A100E3771A5D7E630088F849 /* BLSAugmentedViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A100E37A1A5D7E630088F849 /* BLSAugmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A100E3781A5D7E630088F849 /* BLSAugmentedViewController.m */; };
-		A100E37F1A5D8CFF0088F849 /* BLSAugmentedAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = A100E37D1A5D8CFF0088F849 /* BLSAugmentedAnnotationView.h */; };
+		A100E37F1A5D8CFF0088F849 /* BLSAugmentedAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = A100E37D1A5D8CFF0088F849 /* BLSAugmentedAnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A100E3801A5D8CFF0088F849 /* BLSAugmentedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A100E37E1A5D8CFF0088F849 /* BLSAugmentedAnnotationView.m */; };
-		A100E3861A5D8DF00088F849 /* BLSAugmentedAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = A100E3851A5D8DF00088F849 /* BLSAugmentedAnnotation.h */; };
+		A100E3861A5D8DF00088F849 /* BLSAugmentedAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = A100E3851A5D8DF00088F849 /* BLSAugmentedAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A119347B1A5D7592006BA5D7 /* BLSAugmentedController.h in Headers */ = {isa = PBXBuildFile; fileRef = A119347A1A5D7592006BA5D7 /* BLSAugmentedController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A11934811A5D7592006BA5D7 /* BLSAugmentedController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11934751A5D7592006BA5D7 /* BLSAugmentedController.framework */; };
 		A11934881A5D7592006BA5D7 /* BLSAugmentedControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A11934871A5D7592006BA5D7 /* BLSAugmentedControllerTests.m */; };
@@ -347,8 +347,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BLSAugmentedController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -365,7 +365,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BLSAugmentedController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

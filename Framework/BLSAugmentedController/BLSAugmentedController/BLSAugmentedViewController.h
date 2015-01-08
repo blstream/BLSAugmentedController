@@ -39,6 +39,6 @@ typedef enum : NSUInteger {
 
 @protocol BLSAugmentedViewControllerDelegate <NSObject>
 
-- (BLSAugmentedAnnotationView *)viewForAnnotation:(id <BLSAugmentedAnnotation>)annotation forUserLocation:(CLLocation *)location;
+- (BLSAugmentedAnnotationView *)augmentedViewController:(BLSAugmentedViewController *)augmentedViewController viewForAnnotation:(id <BLSAugmentedAnnotation>)annotation forUserLocation:(CLLocation *)location;
 
 @end
