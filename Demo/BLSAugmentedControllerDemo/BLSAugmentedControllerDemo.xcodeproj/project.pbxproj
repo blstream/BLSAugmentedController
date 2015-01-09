@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A100E37C1A5D87380088F849 /* BLSAugmentedController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A100E37B1A5D87380088F849 /* BLSAugmentedController.framework */; };
 		A100E3891A5E92220088F849 /* BLSDemoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A100E3881A5E92220088F849 /* BLSDemoAnnotation.m */; };
+		A100E38B1A5E9C2B0088F849 /* BLSAugmentedController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A100E38A1A5E9C2B0088F849 /* BLSAugmentedController.framework */; };
+		A100E38C1A5E9C2B0088F849 /* BLSAugmentedController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A100E38A1A5E9C2B0088F849 /* BLSAugmentedController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A11934A01A5D75F9006BA5D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A119349F1A5D75F9006BA5D7 /* main.m */; };
 		A11934A31A5D75F9006BA5D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A11934A21A5D75F9006BA5D7 /* AppDelegate.m */; };
 		A11934A61A5D75F9006BA5D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11934A51A5D75F9006BA5D7 /* ViewController.m */; };
@@ -28,10 +29,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A100E38D1A5E9C2B0088F849 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A100E38C1A5E9C2B0088F849 /* BLSAugmentedController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		A100E37B1A5D87380088F849 /* BLSAugmentedController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLSAugmentedController.framework; path = "../../Framework/BLSAugmentedController/build/Debug-iphoneos/BLSAugmentedController.framework"; sourceTree = "<group>"; };
 		A100E3871A5E92220088F849 /* BLSDemoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSDemoAnnotation.h; sourceTree = "<group>"; };
 		A100E3881A5E92220088F849 /* BLSDemoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSDemoAnnotation.m; sourceTree = "<group>"; };
+		A100E38A1A5E9C2B0088F849 /* BLSAugmentedController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = BLSAugmentedController.framework; path = "/Users/piotrtobolski/Library/Developer/Xcode/DerivedData/BLSAugmentedController-dmzzrcjgcfdtqqdzimfuomvlwjrp/Build/Products/Debug-iphoneos/BLSAugmentedController.framework"; sourceTree = "<absolute>"; };
 		A119349A1A5D75F9006BA5D7 /* BLSAugmentedControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLSAugmentedControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A119349E1A5D75F9006BA5D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A119349F1A5D75F9006BA5D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A100E37C1A5D87380088F849 /* BLSAugmentedController.framework in Frameworks */,
+				A100E38B1A5E9C2B0088F849 /* BLSAugmentedController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +84,7 @@
 		A11934911A5D75F9006BA5D7 = {
 			isa = PBXGroup;
 			children = (
-				A100E37B1A5D87380088F849 /* BLSAugmentedController.framework */,
+				A100E38A1A5E9C2B0088F849 /* BLSAugmentedController.framework */,
 				A119349C1A5D75F9006BA5D7 /* BLSAugmentedControllerDemo */,
 				A11934B61A5D75F9006BA5D7 /* BLSAugmentedControllerDemoTests */,
 				A119349B1A5D75F9006BA5D7 /* Products */,
@@ -138,6 +153,7 @@
 				A11934961A5D75F9006BA5D7 /* Sources */,
 				A11934971A5D75F9006BA5D7 /* Frameworks */,
 				A11934981A5D75F9006BA5D7 /* Resources */,
+				A100E38D1A5E9C2B0088F849 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,6 +376,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/piotrtobolski/Documents/Projekty/BLSAugmentedController/Framework/BLSAugmentedController/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BLSAugmentedController-dmzzrcjgcfdtqqdzimfuomvlwjrp/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = BLSAugmentedControllerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -377,6 +394,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/piotrtobolski/Documents/Projekty/BLSAugmentedController/Framework/BLSAugmentedController/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BLSAugmentedController-dmzzrcjgcfdtqqdzimfuomvlwjrp/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = BLSAugmentedControllerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
