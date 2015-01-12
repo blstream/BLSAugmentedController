@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <BLSAugmentedController/BLSAugmentedController.h>
+#import <BLSAugmentedControllerFramework/BLSAugmentedControllerFramework.h>
 #import "BLSDemoAnnotation.h"
 
 @interface ViewController () <BLSAugmentedViewControllerDelegate>
@@ -43,11 +43,11 @@
     if (sender.selectedSegmentIndex == 0) {
         self.augmentedViewController.style = BLSAugmentedViewControllerStyleMap;
     } else if (sender.selectedSegmentIndex == 1) {
-        self.augmentedViewController.style = BLSAugmentedViewControllerStyleVR;
+        self.augmentedViewController.style = BLSAugmentedViewControllerStyleAR;
     }
 }
 
-- (BLSAugmentedAnnotationView *)augmentedViewController:(BLSAugmentedViewController *)augmentedViewController viewForAnnotation:(id<BLSAugmentedAnnotation>)annotation forUserLocation:(CLLocation *)location {
+- (BLSAugmentedAnnotationView *)augmentedViewController:(BLSAugmentedViewController *)augmentedViewController viewForAnnotation:(id<BLSAugmentedAnnotation>)annotation forUserLocation:(CLLocation *)location distance:(CLLocationDistance)distance{
     BLSDemoAnnotation *demoAnnotation = annotation;
     BLSAugmentedAnnotationView *view = [augmentedViewController dequeueReusableAnnotationViewWithIdentifier:demoAnnotation.type];
     if (view == nil) {
@@ -57,6 +57,8 @@
         } else {
             view.image = [UIImage imageNamed:@"police"];
         }
+    } else {
+        view.annotation = annotation;
     }
     return view;
 }

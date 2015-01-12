@@ -1,19 +1,19 @@
 //
-//  BLSAugmentedControllerDemoTests.m
-//  BLSAugmentedControllerDemoTests
+//  BLSAugmentedControllerTests.m
+//  BLSAugmentedControllerTests
 //
-//  Created by Piotr Tobolski on 07.01.2015.
+//  Created by Piotr Tobolski on 12.01.2015.
 //  Copyright (c) 2015 BLStream Sp. z o.o. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface BLSAugmentedControllerDemoTests : XCTestCase
+@interface BLSAugmentedControllerTests : XCTestCase
 
 @end
 
-@implementation BLSAugmentedControllerDemoTests
+@implementation BLSAugmentedControllerTests
 
 - (void)setUp {
     [super setUp];

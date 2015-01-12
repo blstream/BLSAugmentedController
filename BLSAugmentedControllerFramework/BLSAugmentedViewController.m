@@ -13,15 +13,16 @@
 #import <CoreMotion/CoreMotion.h>
 #import <MapKit/MapKit.h>
 
+static const float kBLSARViewUpdateInterval = 1.0/60.0;
+
 #pragma mark - Class Extension
 
 @interface BLSAugmentedViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CMMotionManager *motionManager;
 
 @property (nonatomic, strong) NSMutableArray *annotations;
-@property (nonatomic, strong) NSMutableArray *viewsInUse;
+@property (nonatomic, strong) NSMutableDictionary *viewsInUse;
 @property (nonatomic, strong) NSMutableSet *reusableViews;
 
 @property (nonatomic, weak) MKMapView *mapView;
@@ -33,6 +34,7 @@
 @property (nonatomic, weak) NSTimer *refreshARAnnotationViewsTimer;
 
 @end
+
 
 #pragma mark - Helper Functions
 
@@ -75,10 +77,10 @@ CLLocationDistance BLSDistanceBetweenCoordinated(CLLocationCoordinate2D coordina
     return c * R;
 }
 
-static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
-{
+static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2) {
     return (CGPoint){p1.x + p2.x, p1.y + p2.y};
 }
+
 
 #pragma mark -
 
@@ -102,6 +104,7 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
 
 - (void)customInitialization {
     _style = BLSAugmentedViewControllerStyleMap;
+    _maxDistance = 750.0;
 }
 
 - (void)viewDidLoad {
@@ -109,14 +112,16 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     
     if (self.style == BLSAugmentedViewControllerStyleMap) {
         [self loadMapView];
-    } else if (self.style == BLSAugmentedViewControllerStyleVR) {
+    } else if (self.style == BLSAugmentedViewControllerStyleAR) {
         [self loadVRView];
     }
-    [self.locationManager requestWhenInUseAuthorization];
+    
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
     
     [self.locationManager startUpdatingLocation];
     [self.locationManager startUpdatingHeading];
-    [self.motionManager startDeviceMotionUpdates];
 }
 
 #pragma mark - Memory
@@ -132,7 +137,7 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     if (_style != style && self.isViewLoaded) {
         if (style == BLSAugmentedViewControllerStyleMap) {
             [self loadMapView];
-        } else if (style == BLSAugmentedViewControllerStyleVR) {
+        } else if (style == BLSAugmentedViewControllerStyleAR) {
             [self loadVRView];
         }
     }
@@ -149,15 +154,6 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     return _locationManager;
 }
 
-- (CMMotionManager *)motionManager {
-    if (_motionManager == nil) {
-        _motionManager = [[CMMotionManager alloc] init];
-        _motionManager.deviceMotionUpdateInterval = 1.0/30.0;
-        _motionManager.showsDeviceMovementDisplay = YES;
-    }
-    return _motionManager;
-}
-
 - (NSArray *)annotations {
     if (_annotations == nil) {
         _annotations = [[NSMutableArray alloc] init];
@@ -165,9 +161,9 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     return _annotations;
 }
 
-- (NSArray *)viewsInUse {
+- (NSMutableDictionary *)viewsInUse {
     if (_viewsInUse == nil) {
-        _viewsInUse = [[NSMutableArray alloc] init];
+        _viewsInUse = [[NSMutableDictionary alloc] init];
     }
     return _viewsInUse;
 }
@@ -182,13 +178,7 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
 #pragma mark - Actions
 
 - (void)invalidateAnnotation:(id<BLSAugmentedAnnotation>)annotation {
-    for (BLSAugmentedAnnotationView *view in self.viewsInUse) {
-        if ([view.annotation isEqual:annotation]) {
-            [self.viewsInUse removeObject:view];
-            [self.reusableViews addObject:view];
-            return;
-        }
-    }
+    [self removeViewForAnnotation:annotation];
 }
 
 - (void)invalidateAnnotations:(NSArray *)annotations {
@@ -222,6 +212,11 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     mapView.delegate = self;
+    mapView.showsUserLocation = YES;
+    mapView.scrollEnabled = NO;
+    mapView.rotateEnabled = NO;
+    mapView.zoomEnabled = NO;
+    mapView.pitchEnabled = NO;
     [mapView addAnnotations:self.annotations];
     
     [self.view insertSubview:mapView atIndex:0];
@@ -266,15 +261,13 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     
     [self configureVideoOrientation];
     
-    //move to appear method
     [session startRunning];
-    [self.motionManager startDeviceMotionUpdates];
     
-    self.refreshARAnnotationViewsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(refreshARAnnotationViewsTimerTimeout:) userInfo:nil repeats:YES];
+    self.refreshARAnnotationViewsTimer = [NSTimer scheduledTimerWithTimeInterval:kBLSARViewUpdateInterval target:self selector:@selector(refreshARAnnotationViewsTimerTimeout:) userInfo:nil repeats:YES];
 }
 
 - (void)configureVideoOrientation {
-    UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
     if (deviceOrientation == UIDeviceOrientationLandscapeLeft) {
         self.videoPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
     } else if (deviceOrientation == UIDeviceOrientationLandscapeRight) {
@@ -286,8 +279,9 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     }
 }
 
+#pragma mark Main Timer
 - (void)refreshARAnnotationViewsTimerTimeout:(NSTimer *)timer {
-    double viewBearing = BLSDegreesToRadians(self.locationManager.heading.trueHeading);
+    double viewBearing = [self viewBearing];
     double fov = [self fieldOfView];
     double minBearing = BLSNormalizeRadians(viewBearing - fov/2);
     double maxBearing = BLSNormalizeRadians(minBearing+fov);
@@ -296,52 +290,83 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
     
     for (id <BLSAugmentedAnnotation>annotation in self.annotations) {
         double bearing = BLSBearingBetweenCoordinates(currentCoordinate, annotation.coordinate);
+        CLLocationDistance distance = BLSDistanceBetweenCoordinated(currentCoordinate, annotation.coordinate);
         
         BLSAugmentedAnnotationView *view = [self visibleViewForAnnotation:annotation];
-        
-        if ((minBearing < maxBearing && (bearing > minBearing && bearing < maxBearing)) ||
-            (minBearing > maxBearing && (bearing > minBearing || bearing > maxBearing))) {
+        if (((minBearing < maxBearing && (bearing > minBearing && bearing < maxBearing)) ||
+            (minBearing > maxBearing && (bearing > minBearing || bearing > maxBearing))) &&
+            distance <= self.maxDistance) {
             
             if (view == nil) {
-                view = [self.delegate augmentedViewController:self viewForAnnotation:annotation forUserLocation:currentLocation];
+                view = [self.delegate augmentedViewController:self viewForAnnotation:annotation forUserLocation:currentLocation distance:distance];
                 [self.vrView addSubview:view];
-                [self.viewsInUse addObject:view];
-                NSLog(@"Added view: %@", view);
+                self.viewsInUse[@([annotation hash])] = view;
             }
             
+            CGFloat relativeDistance = (self.maxDistance - distance) / self.maxDistance; // 0-1, 0 means far, 1 means close
+            
             CGPoint centerPoint = self.vrView.center;
-            
             centerPoint.x = BLSNormalizeRadians(bearing - minBearing) / fov * CGRectGetWidth(self.vrView.bounds);
+            centerPoint.y = CGRectGetMidY(self.vrView.bounds) * relativeDistance;
             centerPoint = BLSCGPointAdd(centerPoint, view.centerOffset);
-            
             view.center = centerPoint;
             
-            NSLog(@"centerPoint: %@", NSStringFromCGPoint(centerPoint));
+            CGFloat scale = 0.5 + 0.5 * relativeDistance;
+            view.transform = CGAffineTransformMakeScale(scale, scale);
+            
+            view.frame = CGRectOffset(view.frame, scale * CGRectGetWidth(view.frame) / 2, scale * CGRectGetHeight(view.frame) / 2);
             
         } else if (view != nil) {
-            [view removeFromSuperview];
-            [self.viewsInUse removeObjectIdenticalTo:view];
-            [self.reusableViews addObject:view];
-            NSLog(@"Removed view: %@", view);
+            [self removeViewForAnnotation:annotation];
         }
     }
 }
+
+
+#pragma mark - Helpers
 
 - (BLSAugmentedAnnotationView *)visibleViewForAnnotation:(id<BLSAugmentedAnnotation>)annotation {
-    for (BLSAugmentedAnnotationView *view in self.viewsInUse) {
-        if ([view.annotation isEqual:annotation]) {
-            return view;
-        }
-    }
-    return nil;
+    return self.viewsInUse[@([annotation hash])];
 }
 
-- (double)fieldOfView {
-    double fov = BLSDegreesToRadians(self.captureDevice.activeFormat.videoFieldOfView);
+- (void)removeViewForAnnotation:(id<BLSAugmentedAnnotation>)annotation {
+    BLSAugmentedAnnotationView *view = self.viewsInUse[@([annotation hash])];
+    if (view != nil) {
+        [view removeFromSuperview];
+        [self.viewsInUse removeObjectForKey:@([annotation hash])];
+        [self.reusableViews addObject:view];
+    }
+}
+
+- (CGFloat)fieldOfView {
+    CGFloat videoFieldOfView = BLSDegreesToRadians(self.captureDevice.activeFormat.videoFieldOfView);
+    CMFormatDescriptionRef format = self.captureDevice.activeFormat.formatDescription;
+    CMVideoDimensions videoDimensions = CMVideoFormatDescriptionGetDimensions(format);
+    CGSize videoSize = CGSizeMake(videoDimensions.width, videoDimensions.height);
+    CGSize viewportSize = self.videoPreviewLayer.bounds.size;
     
-    //TODO: calculate cropped fov
+    CGFloat fov = 0;
+    if (self.videoPreviewLayer.connection.videoOrientation == AVCaptureVideoOrientationLandscapeRight ||
+        self.videoPreviewLayer.connection.videoOrientation == AVCaptureVideoOrientationLandscapeLeft) {
+        fov = videoFieldOfView * (videoSize.width / videoSize.height) * (viewportSize.height / viewportSize.width);
+    } else {
+        fov = videoFieldOfView * (videoSize.height / videoSize.width)  * (videoSize.height / videoSize.width) * (viewportSize.height / viewportSize.width);
+    }
     
     return fov;
+}
+
+- (double)viewBearing {
+    double viewBearing = BLSDegreesToRadians(self.locationManager.heading.trueHeading);
+    
+    if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {
+        viewBearing -= M_PI_2;
+    } else if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft) {
+        viewBearing += M_PI_2;
+    } else if ([UIDevice currentDevice].orientation == UIDeviceOrientationPortraitUpsideDown) {
+        viewBearing += M_PI;
+    }
+    return viewBearing;
 }
 
 #pragma mark - Adding or removing annotations
@@ -380,29 +405,32 @@ static inline CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2)
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation conformsToProtocol:@protocol(BLSAugmentedAnnotation)]) {
-        return [self.delegate augmentedViewController:self viewForAnnotation:(id <BLSAugmentedAnnotation>)annotation forUserLocation:self.locationManager.location];
+        CLLocationDistance distance = BLSDistanceBetweenCoordinated(self.locationManager.location.coordinate, annotation.coordinate);
+        return [self.delegate augmentedViewController:self viewForAnnotation:(id <BLSAugmentedAnnotation>)annotation forUserLocation:self.locationManager.location distance:distance];
     } else {
         return nil;
     }
 }
 
-#pragma mark - CLLocationManagerDelegate
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, self.maxDistance * 2, self.maxDistance * 2);
+    [self.mapView setRegion:region animated:YES];
+}
 
-//- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
-//    [self refreshARAnnotationsWithViewBearing:BLSDegreesToRadians(newHeading.trueHeading)];
-//}
+#pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways) {
         [manager startUpdatingLocation];
         [manager startUpdatingHeading];
+        self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     }
 }
 
 #pragma mark - Rotation
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    if (self.style == BLSAugmentedViewControllerStyleVR) {
+    if (self.style == BLSAugmentedViewControllerStyleAR) {
         self.videoPreviewLayer.frame = CGRectMake(0, 0, size.width, size.height);
         [self configureVideoOrientation];
     }
