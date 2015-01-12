@@ -375,7 +375,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/piotrtobolski/Documents/Projekty/BLSAugmentedController/Framework/BLSAugmentedController/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BLSAugmentedController-dmzzrcjgcfdtqqdzimfuomvlwjrp/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = BLSAugmentedControllerDemo/Info.plist;
@@ -393,7 +392,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/piotrtobolski/Documents/Projekty/BLSAugmentedController/Framework/BLSAugmentedController/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BLSAugmentedController-dmzzrcjgcfdtqqdzimfuomvlwjrp/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = BLSAugmentedControllerDemo/Info.plist;
