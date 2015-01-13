@@ -1,9 +1,6 @@
 #!/bin/sh
-#
+#   XcodeCoverage by Jon Reid, http://qualitycoding/about/
 #   Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-#   Created by: Jon Reid, http://qualitycoding.org/
-#   Source: https://github.com/jonreid/XcodeCoverage
-#
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${DIR}/envcov.sh
@@ -17,24 +14,33 @@ remove_old_report()
     popd
 }
 
-create_lcov_dir()
+enter_lcov_dir()
 {
-    mkdir ${BUILT_PRODUCTS_DIR}/lcov
+    cd "${BUILT_PRODUCTS_DIR}"
+    mkdir lcov
+    cd lcov
 }
 
 gather_coverage()
 {
-    pushd ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}
-    ${SRCROOT}/XcodeCoverage/gcovr --object-directory . --exclude '.*Platforms.*' --exclude '.*Externals.*' --exclude '.*Tests.*' --html --html-details -o ${BUILT_PRODUCTS_DIR}/lcov/coverage.html
-    popd
+    LCOV --capture --derive-func-data -b "${SRCROOT}" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+}
+
+exclude_data()
+{
+    LCOV --remove ${LCOV_INFO} "Developer/SDKs/*" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+    LCOV --remove ${LCOV_INFO} "main.m" -d "${OBJ_DIR}" -o ${LCOV_INFO}
+    # Remove other patterns here...
 }
 
 generate_report()
 {
-    open ${BUILT_PRODUCTS_DIR}/lcov/coverage.html
+    "${LCOV_PATH}/genhtml" --output-directory . ${LCOV_INFO}
+    open index.html
 }
 
 remove_old_report
-create_lcov_dir
+enter_lcov_dir
 gather_coverage
+exclude_data
 generate_report

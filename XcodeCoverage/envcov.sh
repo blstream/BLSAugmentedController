@@ -1,15 +1,10 @@
-#
+#   XcodeCoverage by Jon Reid, http://qualitycoding/about/
 #   Copyright 2014 Jonathan M. Reid. See LICENSE.txt
-#   Created by: Jon Reid, http://qualitycoding.org/
-#   Source: https://github.com/jonreid/XcodeCoverage
-#
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${DIR}/env.sh
 
 # Change the report name if you like:
-LCOV_BASE=Coverage.base
-LCOV_DATA=Coverage.data
 LCOV_INFO=Coverage.info
 
 XCODECOVERAGE_PATH="${SRCROOT}/XcodeCoverage"
