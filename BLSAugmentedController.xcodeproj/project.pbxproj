@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		23E254461A6530EA00934863 /* BLSAugmentedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */; };
 		23E2544E1A65525E00934863 /* libBLSAugmentedControllerFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE60F1A63E99500C03FAD /* libBLSAugmentedControllerFramework.a */; };
+		23E2544F1A65543C00934863 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */; };
+		23E254501A65543F00934863 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6361A63FA4500C03FAD /* AVFoundation.framework */; };
 		A12AE5E81A63E8DD00C03FAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5E71A63E8DD00C03FAD /* main.m */; };
 		A12AE5EB1A63E8DD00C03FAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5EA1A63E8DD00C03FAD /* AppDelegate.m */; };
 		A12AE5EE1A63E8DD00C03FAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5ED1A63E8DD00C03FAD /* ViewController.m */; };
@@ -109,7 +111,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E2544F1A65543C00934863 /* CoreMedia.framework in Frameworks */,
 				23E2544E1A65525E00934863 /* libBLSAugmentedControllerFramework.a in Frameworks */,
+				23E254501A65543F00934863 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
