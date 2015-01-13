@@ -132,16 +132,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A12AE5D91A63E8DD00C03FAD = {
+		23E254421A649CAB00934863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */,
 				A12AE6361A63FA4500C03FAD /* AVFoundation.framework */,
-				A12AE5E41A63E8DD00C03FAD /* BLSAugmentedController */,
-				A12AE5FE1A63E8DE00C03FAD /* BLSAugmentedControllerTests */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A12AE5D91A63E8DD00C03FAD = {
+			isa = PBXGroup;
+			children = (
+				A12AE5E41A63E8DD00C03FAD /* BLSAugmentedControllerDemo */,
+				A12AE5FE1A63E8DE00C03FAD /* BLSAugmentedControllerDemoTests */,
 				A12AE6101A63E99500C03FAD /* BLSAugmentedControllerFramework */,
 				A12AE61D1A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests */,
 				A12AE5E31A63E8DD00C03FAD /* Products */,
+				23E254421A649CAB00934863 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,7 +164,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A12AE5E41A63E8DD00C03FAD /* BLSAugmentedController */ = {
+		A12AE5E41A63E8DD00C03FAD /* BLSAugmentedControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
 				A12AE6331A63F76700C03FAD /* BLSDemoAnnotation.h */,
@@ -170,6 +178,7 @@
 				A12AE5F41A63E8DD00C03FAD /* LaunchScreen.xib */,
 				A12AE5E51A63E8DD00C03FAD /* Supporting Files */,
 			);
+			name = BLSAugmentedControllerDemo;
 			path = BLSAugmentedController;
 			sourceTree = "<group>";
 		};
@@ -182,12 +191,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A12AE5FE1A63E8DE00C03FAD /* BLSAugmentedControllerTests */ = {
+		A12AE5FE1A63E8DE00C03FAD /* BLSAugmentedControllerDemoTests */ = {
 			isa = PBXGroup;
 			children = (
 				A12AE6011A63E8DE00C03FAD /* BLSAugmentedControllerTests.m */,
 				A12AE5FF1A63E8DE00C03FAD /* Supporting Files */,
 			);
+			name = BLSAugmentedControllerDemoTests;
 			path = BLSAugmentedControllerTests;
 			sourceTree = "<group>";
 		};
@@ -231,9 +241,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A12AE5E11A63E8DD00C03FAD /* BLSAugmentedController */ = {
+		A12AE5E11A63E8DD00C03FAD /* BLSAugmentedControllerDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A12AE6051A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedController" */;
+			buildConfigurationList = A12AE6051A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerDemo" */;
 			buildPhases = (
 				A12AE5DE1A63E8DD00C03FAD /* Sources */,
 				A12AE5DF1A63E8DD00C03FAD /* Frameworks */,
@@ -244,14 +254,14 @@
 			dependencies = (
 				A12AE6271A63E9BF00C03FAD /* PBXTargetDependency */,
 			);
-			name = BLSAugmentedController;
+			name = BLSAugmentedControllerDemo;
 			productName = BLSAugmentedController;
 			productReference = A12AE5E21A63E8DD00C03FAD /* BLSAugmentedController.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A12AE5FA1A63E8DE00C03FAD /* BLSAugmentedControllerTests */ = {
+		A12AE5FA1A63E8DE00C03FAD /* BLSAugmentedControllerDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A12AE6081A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerTests" */;
+			buildConfigurationList = A12AE6081A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerDemoTests" */;
 			buildPhases = (
 				A12AE5F71A63E8DE00C03FAD /* Sources */,
 				A12AE5F81A63E8DE00C03FAD /* Frameworks */,
@@ -262,7 +272,7 @@
 			dependencies = (
 				A12AE5FD1A63E8DE00C03FAD /* PBXTargetDependency */,
 			);
-			name = BLSAugmentedControllerTests;
+			name = BLSAugmentedControllerDemoTests;
 			productName = BLSAugmentedControllerTests;
 			productReference = A12AE5FB1A63E8DE00C03FAD /* BLSAugmentedControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -340,8 +350,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A12AE5E11A63E8DD00C03FAD /* BLSAugmentedController */,
-				A12AE5FA1A63E8DE00C03FAD /* BLSAugmentedControllerTests */,
+				A12AE5E11A63E8DD00C03FAD /* BLSAugmentedControllerDemo */,
+				A12AE5FA1A63E8DE00C03FAD /* BLSAugmentedControllerDemoTests */,
 				A12AE60E1A63E99500C03FAD /* BLSAugmentedControllerFramework */,
 				A12AE6181A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests */,
 			);
@@ -416,7 +426,7 @@
 /* Begin PBXTargetDependency section */
 		A12AE5FD1A63E8DE00C03FAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A12AE5E11A63E8DD00C03FAD /* BLSAugmentedController */;
+			target = A12AE5E11A63E8DD00C03FAD /* BLSAugmentedControllerDemo */;
 			targetProxy = A12AE5FC1A63E8DE00C03FAD /* PBXContainerItemProxy */;
 		};
 		A12AE61C1A63E99500C03FAD /* PBXTargetDependency */ = {
@@ -651,7 +661,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A12AE6051A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedController" */ = {
+		A12AE6051A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A12AE6061A63E8DE00C03FAD /* Debug */,
@@ -660,7 +670,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A12AE6081A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerTests" */ = {
+		A12AE6081A63E8DE00C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A12AE6091A63E8DE00C03FAD /* Debug */,
@@ -676,6 +686,7 @@
 				A12AE6221A63E99500C03FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A12AE6231A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerFrameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -684,6 +695,7 @@
 				A12AE6251A63E99500C03FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
