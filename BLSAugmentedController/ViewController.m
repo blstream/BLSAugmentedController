@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <BLSAugmentedControllerFramework/BLSAugmentedControllerFramework.h>
+#import <BLSAugmentedController/BLSAugmentedController.h>
 #import "BLSDemoAnnotation.h"
 
 @interface ViewController () <BLSAugmentedViewControllerDelegate>

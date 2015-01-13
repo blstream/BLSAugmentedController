@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "BLSAugmentedViewController.h"
 
 @interface BLSAugmentedViewControllerTests : XCTestCase
+
+@property (nonatomic, strong) BLSAugmentedViewController *vc;
 
 @end
 
@@ -17,7 +20,7 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.vc = [[BLSAugmentedViewController alloc] init];
 }
 
 - (void)tearDown {
@@ -26,14 +29,12 @@
 }
 
 - (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    XCTAssert(self.vc.view, "View loading");
 }
 
 - (void)testPerformanceExample {
-    // This is an example of a performance test case.
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+        [self.vc view];
     }];
 }
 

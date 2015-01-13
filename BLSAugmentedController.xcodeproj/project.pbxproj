@@ -6,31 +6,46 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		A146534E1A656EC60026843E /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A14653511A656EC60026843E /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				A14653591A6572E60026843E /* ShellScript */,
+			);
+			dependencies = (
+				A14653531A656ECD0026843E /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		23E254461A6530EA00934863 /* BLSAugmentedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */; };
-		23E2544E1A65525E00934863 /* libBLSAugmentedControllerFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE60F1A63E99500C03FAD /* libBLSAugmentedControllerFramework.a */; };
-		23E2544F1A65543C00934863 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */; };
-		23E254501A65543F00934863 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6361A63FA4500C03FAD /* AVFoundation.framework */; };
 		A12AE5E81A63E8DD00C03FAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5E71A63E8DD00C03FAD /* main.m */; };
 		A12AE5EB1A63E8DD00C03FAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5EA1A63E8DD00C03FAD /* AppDelegate.m */; };
 		A12AE5EE1A63E8DD00C03FAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5ED1A63E8DD00C03FAD /* ViewController.m */; };
 		A12AE5F31A63E8DD00C03FAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A12AE5F21A63E8DD00C03FAD /* Images.xcassets */; };
 		A12AE5F61A63E8DD00C03FAD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A12AE5F41A63E8DD00C03FAD /* LaunchScreen.xib */; };
-		A12AE6121A63E99500C03FAD /* BLSAugmentedControllerFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A12AE6111A63E99500C03FAD /* BLSAugmentedControllerFramework.h */; };
-		A12AE6281A63E9C600C03FAD /* libBLSAugmentedControllerFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE60F1A63E99500C03FAD /* libBLSAugmentedControllerFramework.a */; };
+		A12AE61A1A63E99500C03FAD /* libBLSAugmentedController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE60F1A63E99500C03FAD /* libBLSAugmentedController.a */; };
+		A12AE6281A63E9C600C03FAD /* libBLSAugmentedController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE60F1A63E99500C03FAD /* libBLSAugmentedController.a */; };
 		A12AE62E1A63EBE000C03FAD /* BLSAugmentedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE62B1A63EBE000C03FAD /* BLSAugmentedAnnotationView.m */; };
 		A12AE62F1A63EBE000C03FAD /* BLSAugmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE62D1A63EBE000C03FAD /* BLSAugmentedViewController.m */; };
-		A12AE6301A63F6CC00C03FAD /* BLSAugmentedAnnotation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A12AE6291A63EBE000C03FAD /* BLSAugmentedAnnotation.h */; };
-		A12AE6311A63F6CC00C03FAD /* BLSAugmentedAnnotationView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A12AE62A1A63EBE000C03FAD /* BLSAugmentedAnnotationView.h */; };
-		A12AE6321A63F6CC00C03FAD /* BLSAugmentedViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A12AE62C1A63EBE000C03FAD /* BLSAugmentedViewController.h */; };
 		A12AE6351A63F76700C03FAD /* BLSDemoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE6341A63F76700C03FAD /* BLSDemoAnnotation.m */; };
-		A12AE6371A63FA4500C03FAD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6361A63FA4500C03FAD /* AVFoundation.framework */; };
-		A12AE6391A63FA5F00C03FAD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */; };
 		A12AE63C1A63FD4800C03FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12AE5EF1A63E8DD00C03FAD /* Main.storyboard */; };
+		A14653551A65722A0026843E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6361A63FA4500C03FAD /* AVFoundation.framework */; };
+		A14653561A6572340026843E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */; };
+		A14653581A65723B0026843E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14653571A65723B0026843E /* CoreLocation.framework */; };
+		A146535C1A6573AF0026843E /* BLSAugmentedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A12AE62C1A63EBE000C03FAD /* BLSAugmentedViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A146535D1A6573AF0026843E /* BLSAugmentedAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = A12AE6291A63EBE000C03FAD /* BLSAugmentedAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A146535E1A6573AF0026843E /* BLSAugmentedAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = A12AE62A1A63EBE000C03FAD /* BLSAugmentedAnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A146535F1A6573BD0026843E /* BLSAugmentedController.h in Headers */ = {isa = PBXBuildFile; fileRef = A12AE6111A63E99500C03FAD /* BLSAugmentedController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7CC5AC1D2CDFAAC51A1C6E2 /* libPods-BLSAugmentedControllerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D6F05656C6CE1D7849DB89 /* libPods-BLSAugmentedControllerTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		23E2544C1A65438B00934863 /* PBXContainerItemProxy */ = {
+		A12AE61B1A63E99500C03FAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A12AE5DA1A63E8DD00C03FAD /* Project object */;
 			proxyType = 1;
@@ -44,27 +59,19 @@
 			remoteGlobalIDString = A12AE60E1A63E99500C03FAD;
 			remoteInfo = BLSAugmentedControllerFramework;
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		A12AE60D1A63E99500C03FAD /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				A12AE6301A63F6CC00C03FAD /* BLSAugmentedAnnotation.h in CopyFiles */,
-				A12AE6311A63F6CC00C03FAD /* BLSAugmentedAnnotationView.h in CopyFiles */,
-				A12AE6321A63F6CC00C03FAD /* BLSAugmentedViewController.h in CopyFiles */,
-				A12AE6121A63E99500C03FAD /* BLSAugmentedControllerFramework.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+		A14653521A656ECD0026843E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A12AE5DA1A63E8DD00C03FAD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A12AE60E1A63E99500C03FAD;
+			remoteInfo = BLSAugmentedControllerFramework;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedViewControllerTests.m; sourceTree = "<group>"; };
-		A12AE5E21A63E8DD00C03FAD /* BLSAugmentedController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BLSAugmentedController.app; path = BLSAugmentedControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83A680E843CF1CB551E6B232 /* Pods-BLSAugmentedControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLSAugmentedControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLSAugmentedControllerTests/Pods-BLSAugmentedControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A12AE5E21A63E8DD00C03FAD /* BLSAugmentedControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLSAugmentedControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12AE5E61A63E8DD00C03FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A12AE5E71A63E8DD00C03FAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A12AE5E91A63E8DD00C03FAD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,9 +81,9 @@
 		A12AE5F01A63E8DD00C03FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A12AE5F21A63E8DD00C03FAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A12AE5F51A63E8DD00C03FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A12AE60F1A63E99500C03FAD /* libBLSAugmentedControllerFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBLSAugmentedControllerFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A12AE6111A63E99500C03FAD /* BLSAugmentedControllerFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLSAugmentedControllerFramework.h; sourceTree = "<group>"; };
-		A12AE6191A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLSAugmentedControllerFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12AE60F1A63E99500C03FAD /* libBLSAugmentedController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBLSAugmentedController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12AE6111A63E99500C03FAD /* BLSAugmentedController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLSAugmentedController.h; sourceTree = "<group>"; };
+		A12AE6191A63E99500C03FAD /* BLSAugmentedControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLSAugmentedControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12AE61F1A63E99500C03FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A12AE6291A63EBE000C03FAD /* BLSAugmentedAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSAugmentedAnnotation.h; sourceTree = "<group>"; };
 		A12AE62A1A63EBE000C03FAD /* BLSAugmentedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSAugmentedAnnotationView.h; sourceTree = "<group>"; };
@@ -87,6 +94,10 @@
 		A12AE6341A63F76700C03FAD /* BLSDemoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSDemoAnnotation.m; sourceTree = "<group>"; };
 		A12AE6361A63FA4500C03FAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A14653571A65723B0026843E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B3D6F05656C6CE1D7849DB89 /* libPods-BLSAugmentedControllerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLSAugmentedControllerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97E6A32E088B059D9BE4AAC /* libPods-BLSAugmentedControllerFrameworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLSAugmentedControllerFrameworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F80B807D7CC271B8F5169CCC /* Pods-BLSAugmentedControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLSAugmentedControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLSAugmentedControllerTests/Pods-BLSAugmentedControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A12AE6391A63FA5F00C03FAD /* CoreMedia.framework in Frameworks */,
-				A12AE6371A63FA4500C03FAD /* AVFoundation.framework in Frameworks */,
-				A12AE6281A63E9C600C03FAD /* libBLSAugmentedControllerFramework.a in Frameworks */,
+				A12AE6281A63E9C600C03FAD /* libBLSAugmentedController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +113,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14653581A65723B0026843E /* CoreLocation.framework in Frameworks */,
+				A14653561A6572340026843E /* CoreMedia.framework in Frameworks */,
+				A14653551A65722A0026843E /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,9 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E2544F1A65543C00934863 /* CoreMedia.framework in Frameworks */,
-				23E2544E1A65525E00934863 /* libBLSAugmentedControllerFramework.a in Frameworks */,
-				23E254501A65543F00934863 /* AVFoundation.framework in Frameworks */,
+				A12AE61A1A63E99500C03FAD /* libBLSAugmentedController.a in Frameworks */,
+				B7CC5AC1D2CDFAAC51A1C6E2 /* libPods-BLSAugmentedControllerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,29 +134,42 @@
 		23E254421A649CAB00934863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A14653571A65723B0026843E /* CoreLocation.framework */,
 				A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */,
 				A12AE6361A63FA4500C03FAD /* AVFoundation.framework */,
+				E97E6A32E088B059D9BE4AAC /* libPods-BLSAugmentedControllerFrameworkTests.a */,
+				B3D6F05656C6CE1D7849DB89 /* libPods-BLSAugmentedControllerTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		411C650A6006C6C2AEF220A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F80B807D7CC271B8F5169CCC /* Pods-BLSAugmentedControllerTests.debug.xcconfig */,
+				83A680E843CF1CB551E6B232 /* Pods-BLSAugmentedControllerTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		A12AE5D91A63E8DD00C03FAD = {
 			isa = PBXGroup;
 			children = (
 				A12AE5E41A63E8DD00C03FAD /* BLSAugmentedControllerDemo */,
-				A12AE6101A63E99500C03FAD /* BLSAugmentedControllerFramework */,
-				A12AE61D1A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests */,
+				A12AE6101A63E99500C03FAD /* BLSAugmentedController */,
+				A12AE61D1A63E99500C03FAD /* BLSAugmentedControlleTests */,
 				A12AE5E31A63E8DD00C03FAD /* Products */,
 				23E254421A649CAB00934863 /* Frameworks */,
+				411C650A6006C6C2AEF220A0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		A12AE5E31A63E8DD00C03FAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A12AE5E21A63E8DD00C03FAD /* BLSAugmentedController.app */,
-				A12AE60F1A63E99500C03FAD /* libBLSAugmentedControllerFramework.a */,
-				A12AE6191A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests.xctest */,
+				A12AE5E21A63E8DD00C03FAD /* BLSAugmentedControllerDemo.app */,
+				A12AE60F1A63E99500C03FAD /* libBLSAugmentedController.a */,
+				A12AE6191A63E99500C03FAD /* BLSAugmentedControllerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,25 +201,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A12AE6101A63E99500C03FAD /* BLSAugmentedControllerFramework */ = {
+		A12AE6101A63E99500C03FAD /* BLSAugmentedController */ = {
 			isa = PBXGroup;
 			children = (
-				A12AE6111A63E99500C03FAD /* BLSAugmentedControllerFramework.h */,
+				A12AE6111A63E99500C03FAD /* BLSAugmentedController.h */,
 				A12AE62C1A63EBE000C03FAD /* BLSAugmentedViewController.h */,
 				A12AE62D1A63EBE000C03FAD /* BLSAugmentedViewController.m */,
 				A12AE6291A63EBE000C03FAD /* BLSAugmentedAnnotation.h */,
 				A12AE62A1A63EBE000C03FAD /* BLSAugmentedAnnotationView.h */,
 				A12AE62B1A63EBE000C03FAD /* BLSAugmentedAnnotationView.m */,
 			);
+			name = BLSAugmentedController;
 			path = BLSAugmentedControllerFramework;
 			sourceTree = "<group>";
 		};
-		A12AE61D1A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests */ = {
+		A12AE61D1A63E99500C03FAD /* BLSAugmentedControlleTests */ = {
 			isa = PBXGroup;
 			children = (
 				A12AE61E1A63E99500C03FAD /* Supporting Files */,
 				23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */,
 			);
+			name = BLSAugmentedControlleTests;
 			path = BLSAugmentedControllerFrameworkTests;
 			sourceTree = "<group>";
 		};
@@ -208,6 +234,20 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A146535A1A6573980026843E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A146535F1A6573BD0026843E /* BLSAugmentedController.h in Headers */,
+				A146535C1A6573AF0026843E /* BLSAugmentedViewController.h in Headers */,
+				A146535D1A6573AF0026843E /* BLSAugmentedAnnotation.h in Headers */,
+				A146535E1A6573AF0026843E /* BLSAugmentedAnnotationView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		A12AE5E11A63E8DD00C03FAD /* BLSAugmentedControllerDemo */ = {
@@ -225,43 +265,46 @@
 			);
 			name = BLSAugmentedControllerDemo;
 			productName = BLSAugmentedController;
-			productReference = A12AE5E21A63E8DD00C03FAD /* BLSAugmentedController.app */;
+			productReference = A12AE5E21A63E8DD00C03FAD /* BLSAugmentedControllerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A12AE60E1A63E99500C03FAD /* BLSAugmentedControllerFramework */ = {
+		A12AE60E1A63E99500C03FAD /* BLSAugmentedController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A12AE6201A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerFramework" */;
+			buildConfigurationList = A12AE6201A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedController" */;
 			buildPhases = (
 				A12AE60B1A63E99500C03FAD /* Sources */,
 				A12AE60C1A63E99500C03FAD /* Frameworks */,
-				A12AE60D1A63E99500C03FAD /* CopyFiles */,
+				A146535A1A6573980026843E /* Headers */,
+				A14653541A6571C30026843E /* Build Framework */,
 				23E254441A652EB400934863 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BLSAugmentedControllerFramework;
+			name = BLSAugmentedController;
 			productName = BLSAugmentedControllerFramework;
-			productReference = A12AE60F1A63E99500C03FAD /* libBLSAugmentedControllerFramework.a */;
+			productReference = A12AE60F1A63E99500C03FAD /* libBLSAugmentedController.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A12AE6181A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests */ = {
+		A12AE6181A63E99500C03FAD /* BLSAugmentedControllerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A12AE6231A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerFrameworkTests" */;
+			buildConfigurationList = A12AE6231A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerTests" */;
 			buildPhases = (
+				C0A57C7C855F27AC521687F2 /* Check Pods Manifest.lock */,
 				A12AE6151A63E99500C03FAD /* Sources */,
 				A12AE6161A63E99500C03FAD /* Frameworks */,
 				A12AE6171A63E99500C03FAD /* Resources */,
+				164CBC22A826A841791E7EC5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				23E2544D1A65438B00934863 /* PBXTargetDependency */,
+				A12AE61C1A63E99500C03FAD /* PBXTargetDependency */,
 			);
-			name = BLSAugmentedControllerFrameworkTests;
+			name = BLSAugmentedControllerTests;
 			productName = BLSAugmentedControllerFrameworkTests;
-			productReference = A12AE6191A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests.xctest */;
+			productReference = A12AE6191A63E99500C03FAD /* BLSAugmentedControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -283,6 +326,9 @@
 					A12AE6181A63E99500C03FAD = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
+					A146534E1A656EC60026843E = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 				};
 			};
 			buildConfigurationList = A12AE5DD1A63E8DD00C03FAD /* Build configuration list for PBXProject "BLSAugmentedController" */;
@@ -299,8 +345,9 @@
 			projectRoot = "";
 			targets = (
 				A12AE5E11A63E8DD00C03FAD /* BLSAugmentedControllerDemo */,
-				A12AE60E1A63E99500C03FAD /* BLSAugmentedControllerFramework */,
-				A12AE6181A63E99500C03FAD /* BLSAugmentedControllerFrameworkTests */,
+				A12AE60E1A63E99500C03FAD /* BLSAugmentedController */,
+				A12AE6181A63E99500C03FAD /* BLSAugmentedControllerTests */,
+				A146534E1A656EC60026843E /* Framework */,
 			);
 		};
 /* End PBXProject section */
@@ -326,6 +373,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		164CBC22A826A841791E7EC5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLSAugmentedControllerTests/Pods-BLSAugmentedControllerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		23E254441A652EB400934863 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,6 +400,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "XcodeCoverage/exportenv.sh  ";
+		};
+		A14653541A6571C30026843E /* Build Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n";
+		};
+		A14653591A6572E60026843E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"\n\necho \"All done\"\nexit 0\n";
+		};
+		C0A57C7C855F27AC521687F2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -373,15 +477,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		23E2544D1A65438B00934863 /* PBXTargetDependency */ = {
+		A12AE61C1A63E99500C03FAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A12AE60E1A63E99500C03FAD /* BLSAugmentedControllerFramework */;
-			targetProxy = 23E2544C1A65438B00934863 /* PBXContainerItemProxy */;
+			target = A12AE60E1A63E99500C03FAD /* BLSAugmentedController */;
+			targetProxy = A12AE61B1A63E99500C03FAD /* PBXContainerItemProxy */;
 		};
 		A12AE6271A63E9BF00C03FAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A12AE60E1A63E99500C03FAD /* BLSAugmentedControllerFramework */;
+			target = A12AE60E1A63E99500C03FAD /* BLSAugmentedController */;
 			targetProxy = A12AE6261A63E9BF00C03FAD /* PBXContainerItemProxy */;
+		};
+		A14653531A656ECD0026843E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A12AE60E1A63E99500C03FAD /* BLSAugmentedController */;
+			targetProxy = A14653521A656ECD0026843E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -491,6 +600,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BLSAugmentedController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
@@ -502,6 +612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BLSAugmentedController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
@@ -519,6 +630,7 @@
 				GENERATE_PROFILING_CODE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -529,12 +641,14 @@
 				GENERATE_PROFILING_CODE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		A12AE6241A63E99500C03FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F80B807D7CC271B8F5169CCC /* Pods-BLSAugmentedControllerTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -553,6 +667,7 @@
 		};
 		A12AE6251A63E99500C03FAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83A680E843CF1CB551E6B232 /* Pods-BLSAugmentedControllerTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -561,6 +676,20 @@
 				INFOPLIST_FILE = BLSAugmentedControllerFrameworkTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A146534F1A656EC60026843E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A14653501A656EC60026843E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -586,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A12AE6201A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerFramework" */ = {
+		A12AE6201A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A12AE6211A63E99500C03FAD /* Debug */,
@@ -595,11 +724,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A12AE6231A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerFrameworkTests" */ = {
+		A12AE6231A63E99500C03FAD /* Build configuration list for PBXNativeTarget "BLSAugmentedControllerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A12AE6241A63E99500C03FAD /* Debug */,
 				A12AE6251A63E99500C03FAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A14653511A656EC60026843E /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A146534F1A656EC60026843E /* Debug */,
+				A14653501A656EC60026843E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

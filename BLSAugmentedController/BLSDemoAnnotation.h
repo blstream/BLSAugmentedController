@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 BLStream Sp. z o.o. All rights reserved.
 //
 
-#import <BLSAugmentedControllerFramework/BLSAugmentedControllerFramework.h>
+#import <BLSAugmentedController/BLSAugmentedController.h>
 
 @interface BLSDemoAnnotation : NSObject <BLSAugmentedAnnotation>
 
