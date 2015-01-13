@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23E254461A6530EA00934863 /* BLSAugmentedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */; };
 		A12AE5E81A63E8DD00C03FAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5E71A63E8DD00C03FAD /* main.m */; };
 		A12AE5EB1A63E8DD00C03FAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5EA1A63E8DD00C03FAD /* AppDelegate.m */; };
 		A12AE5EE1A63E8DD00C03FAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AE5ED1A63E8DD00C03FAD /* ViewController.m */; };
@@ -68,7 +69,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A12AE5E21A63E8DD00C03FAD /* BLSAugmentedController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLSAugmentedController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedViewControllerTests.m; sourceTree = "<group>"; };
+		A12AE5E21A63E8DD00C03FAD /* BLSAugmentedController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BLSAugmentedController.app; path = BLSAugmentedControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12AE5E61A63E8DD00C03FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A12AE5E71A63E8DD00C03FAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A12AE5E91A63E8DD00C03FAD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		A12AE5F01A63E8DD00C03FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A12AE5F21A63E8DD00C03FAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A12AE5F51A63E8DD00C03FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A12AE5FB1A63E8DE00C03FAD /* BLSAugmentedControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLSAugmentedControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12AE5FB1A63E8DE00C03FAD /* BLSAugmentedControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BLSAugmentedControllerTests.xctest; path = BLSAugmentedControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12AE6001A63E8DE00C03FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A12AE6011A63E8DE00C03FAD /* BLSAugmentedControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedControllerTests.m; sourceTree = "<group>"; };
 		A12AE60F1A63E99500C03FAD /* libBLSAugmentedControllerFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBLSAugmentedControllerFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				A12AE61E1A63E99500C03FAD /* Supporting Files */,
+				23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */,
 			);
 			path = BLSAugmentedControllerFrameworkTests;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				A12AE60B1A63E99500C03FAD /* Sources */,
 				A12AE60C1A63E99500C03FAD /* Frameworks */,
 				A12AE60D1A63E99500C03FAD /* CopyFiles */,
+				23E254441A652EB400934863 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -385,6 +389,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23E254441A652EB400934863 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "XcodeCoverage/exportenv.sh  ";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A12AE5DE1A63E8DD00C03FAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -418,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E254461A6530EA00934863 /* BLSAugmentedViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +504,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -525,6 +548,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
