@@ -627,6 +627,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GENERATE_PROFILING_CODE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -636,6 +637,7 @@
 		A12AE6221A63E99500C03FAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GENERATE_PROFILING_CODE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
