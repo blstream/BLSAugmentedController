@@ -41,6 +41,9 @@
 		A146535D1A6573AF0026843E /* BLSAugmentedAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = A12AE6291A63EBE000C03FAD /* BLSAugmentedAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A146535E1A6573AF0026843E /* BLSAugmentedAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = A12AE62A1A63EBE000C03FAD /* BLSAugmentedAnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A146535F1A6573BD0026843E /* BLSAugmentedController.h in Headers */ = {isa = PBXBuildFile; fileRef = A12AE6111A63E99500C03FAD /* BLSAugmentedController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A14653621A6663520026843E /* BLSAugmentedControllerHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = A14653601A6663520026843E /* BLSAugmentedControllerHelpers.h */; };
+		A14653631A6663520026843E /* BLSAugmentedControllerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A14653611A6663520026843E /* BLSAugmentedControllerHelpers.m */; };
+		A14653651A6665E90026843E /* BLSAugmentedControllerHelpersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A14653641A6665E90026843E /* BLSAugmentedControllerHelpersTests.m */; };
 		B7CC5AC1D2CDFAAC51A1C6E2 /* libPods-BLSAugmentedControllerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D6F05656C6CE1D7849DB89 /* libPods-BLSAugmentedControllerTests.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +98,9 @@
 		A12AE6361A63FA4500C03FAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A14653571A65723B0026843E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A14653601A6663520026843E /* BLSAugmentedControllerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSAugmentedControllerHelpers.h; sourceTree = "<group>"; };
+		A14653611A6663520026843E /* BLSAugmentedControllerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedControllerHelpers.m; sourceTree = "<group>"; };
+		A14653641A6665E90026843E /* BLSAugmentedControllerHelpersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedControllerHelpersTests.m; sourceTree = "<group>"; };
 		B3D6F05656C6CE1D7849DB89 /* libPods-BLSAugmentedControllerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLSAugmentedControllerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97E6A32E088B059D9BE4AAC /* libPods-BLSAugmentedControllerFrameworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLSAugmentedControllerFrameworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80B807D7CC271B8F5169CCC /* Pods-BLSAugmentedControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLSAugmentedControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLSAugmentedControllerTests/Pods-BLSAugmentedControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +216,8 @@
 				A12AE6291A63EBE000C03FAD /* BLSAugmentedAnnotation.h */,
 				A12AE62A1A63EBE000C03FAD /* BLSAugmentedAnnotationView.h */,
 				A12AE62B1A63EBE000C03FAD /* BLSAugmentedAnnotationView.m */,
+				A14653601A6663520026843E /* BLSAugmentedControllerHelpers.h */,
+				A14653611A6663520026843E /* BLSAugmentedControllerHelpers.m */,
 			);
 			name = BLSAugmentedController;
 			path = BLSAugmentedControllerFramework;
@@ -220,6 +228,7 @@
 			children = (
 				A12AE61E1A63E99500C03FAD /* Supporting Files */,
 				23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */,
+				A14653641A6665E90026843E /* BLSAugmentedControllerHelpersTests.m */,
 			);
 			name = BLSAugmentedControlleTests;
 			path = BLSAugmentedControllerFrameworkTests;
@@ -240,6 +249,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14653621A6663520026843E /* BLSAugmentedControllerHelpers.h in Headers */,
 				A146535F1A6573BD0026843E /* BLSAugmentedController.h in Headers */,
 				A146535C1A6573AF0026843E /* BLSAugmentedViewController.h in Headers */,
 				A146535D1A6573AF0026843E /* BLSAugmentedAnnotation.h in Headers */,
@@ -463,6 +473,7 @@
 			files = (
 				A12AE62E1A63EBE000C03FAD /* BLSAugmentedAnnotationView.m in Sources */,
 				A12AE62F1A63EBE000C03FAD /* BLSAugmentedViewController.m in Sources */,
+				A14653631A6663520026843E /* BLSAugmentedControllerHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14653651A6665E90026843E /* BLSAugmentedControllerHelpersTests.m in Sources */,
 				23E254461A6530EA00934863 /* BLSAugmentedViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
