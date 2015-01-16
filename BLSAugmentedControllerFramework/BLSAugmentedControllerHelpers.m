@@ -8,17 +8,6 @@
 
 #import "BLSAugmentedControllerHelpers.h"
 
-double BLSDegreesToRadians(double degrees) {
-    return (degrees * M_PI / 180.0);
-}
-
-double BLSNormalizeRadians(double angle) {
-    while (angle < 0) {
-        angle += 2 * M_PI;
-    }
-    return fmod(angle, 2 * M_PI);
-}
-
 double BLSBearingBetweenCoordinates(CLLocationCoordinate2D coordinate1, CLLocationCoordinate2D coordinate2) {
     double lat1 = BLSDegreesToRadians(coordinate1.latitude);
     double lon1 = BLSDegreesToRadians(coordinate1.longitude);
@@ -32,7 +21,7 @@ double BLSBearingBetweenCoordinates(CLLocationCoordinate2D coordinate1, CLLocati
     return BLSNormalizeRadians(result);
 }
 
-CLLocationDistance BLSDistanceBetweenCoordinated(CLLocationCoordinate2D coordinate1, CLLocationCoordinate2D coordinate2) {
+CLLocationDistance BLSDistanceBetweenCoordinates(CLLocationCoordinate2D coordinate1, CLLocationCoordinate2D coordinate2) {
     double lat1 = BLSDegreesToRadians(coordinate1.latitude);
     double lon1 = BLSDegreesToRadians(coordinate1.longitude);
     double lat2 = BLSDegreesToRadians(coordinate2.latitude);
@@ -46,8 +35,3 @@ CLLocationDistance BLSDistanceBetweenCoordinated(CLLocationCoordinate2D coordina
     double R = 6371000; //earth radius
     return c * R;
 }
-
-CGPoint BLSCGPointAdd(CGPoint p1, CGPoint p2) {
-    return (CGPoint){p1.x + p2.x, p1.y + p2.y};
-}
-

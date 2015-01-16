@@ -44,6 +44,11 @@
 		A14653621A6663520026843E /* BLSAugmentedControllerHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = A14653601A6663520026843E /* BLSAugmentedControllerHelpers.h */; };
 		A14653631A6663520026843E /* BLSAugmentedControllerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A14653611A6663520026843E /* BLSAugmentedControllerHelpers.m */; };
 		A14653651A6665E90026843E /* BLSAugmentedControllerHelpersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A14653641A6665E90026843E /* BLSAugmentedControllerHelpersTests.m */; };
+		A14653691A66816A0026843E /* BLSAugmentedAnnotationViewCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A14653671A66816A0026843E /* BLSAugmentedAnnotationViewCache.h */; };
+		A146536A1A66816A0026843E /* BLSAugmentedAnnotationViewCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A14653681A66816A0026843E /* BLSAugmentedAnnotationViewCache.m */; };
+		A146536C1A66A9410026843E /* BLSAugmentedAnnotationViewCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A146536B1A66A9410026843E /* BLSAugmentedAnnotationViewCacheTests.m */; };
+		A1B5D8861A67D04400C0AD7D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B5D8851A67D04400C0AD7D /* MapKit.framework */; };
+		A1B5D8881A67D05100C0AD7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B5D8871A67D05100C0AD7D /* UIKit.framework */; };
 		B7CC5AC1D2CDFAAC51A1C6E2 /* libPods-BLSAugmentedControllerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D6F05656C6CE1D7849DB89 /* libPods-BLSAugmentedControllerTests.a */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +106,11 @@
 		A14653601A6663520026843E /* BLSAugmentedControllerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSAugmentedControllerHelpers.h; sourceTree = "<group>"; };
 		A14653611A6663520026843E /* BLSAugmentedControllerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedControllerHelpers.m; sourceTree = "<group>"; };
 		A14653641A6665E90026843E /* BLSAugmentedControllerHelpersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedControllerHelpersTests.m; sourceTree = "<group>"; };
+		A14653671A66816A0026843E /* BLSAugmentedAnnotationViewCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSAugmentedAnnotationViewCache.h; sourceTree = "<group>"; };
+		A14653681A66816A0026843E /* BLSAugmentedAnnotationViewCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedAnnotationViewCache.m; sourceTree = "<group>"; };
+		A146536B1A66A9410026843E /* BLSAugmentedAnnotationViewCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSAugmentedAnnotationViewCacheTests.m; sourceTree = "<group>"; };
+		A1B5D8851A67D04400C0AD7D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A1B5D8871A67D05100C0AD7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B3D6F05656C6CE1D7849DB89 /* libPods-BLSAugmentedControllerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLSAugmentedControllerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97E6A32E088B059D9BE4AAC /* libPods-BLSAugmentedControllerFrameworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLSAugmentedControllerFrameworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80B807D7CC271B8F5169CCC /* Pods-BLSAugmentedControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLSAugmentedControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLSAugmentedControllerTests/Pods-BLSAugmentedControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B5D8881A67D05100C0AD7D /* UIKit.framework in Frameworks */,
+				A1B5D8861A67D04400C0AD7D /* MapKit.framework in Frameworks */,
 				A14653581A65723B0026843E /* CoreLocation.framework in Frameworks */,
 				A14653561A6572340026843E /* CoreMedia.framework in Frameworks */,
 				A14653551A65722A0026843E /* AVFoundation.framework in Frameworks */,
@@ -140,6 +152,8 @@
 		23E254421A649CAB00934863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1B5D8871A67D05100C0AD7D /* UIKit.framework */,
+				A1B5D8851A67D04400C0AD7D /* MapKit.framework */,
 				A14653571A65723B0026843E /* CoreLocation.framework */,
 				A12AE6381A63FA5F00C03FAD /* CoreMedia.framework */,
 				A12AE6361A63FA4500C03FAD /* AVFoundation.framework */,
@@ -216,6 +230,8 @@
 				A12AE6291A63EBE000C03FAD /* BLSAugmentedAnnotation.h */,
 				A12AE62A1A63EBE000C03FAD /* BLSAugmentedAnnotationView.h */,
 				A12AE62B1A63EBE000C03FAD /* BLSAugmentedAnnotationView.m */,
+				A14653671A66816A0026843E /* BLSAugmentedAnnotationViewCache.h */,
+				A14653681A66816A0026843E /* BLSAugmentedAnnotationViewCache.m */,
 				A14653601A6663520026843E /* BLSAugmentedControllerHelpers.h */,
 				A14653611A6663520026843E /* BLSAugmentedControllerHelpers.m */,
 			);
@@ -228,6 +244,7 @@
 			children = (
 				A12AE61E1A63E99500C03FAD /* Supporting Files */,
 				23E254451A6530EA00934863 /* BLSAugmentedViewControllerTests.m */,
+				A146536B1A66A9410026843E /* BLSAugmentedAnnotationViewCacheTests.m */,
 				A14653641A6665E90026843E /* BLSAugmentedControllerHelpersTests.m */,
 			);
 			name = BLSAugmentedControlleTests;
@@ -253,6 +270,7 @@
 				A146535F1A6573BD0026843E /* BLSAugmentedController.h in Headers */,
 				A146535C1A6573AF0026843E /* BLSAugmentedViewController.h in Headers */,
 				A146535D1A6573AF0026843E /* BLSAugmentedAnnotation.h in Headers */,
+				A14653691A66816A0026843E /* BLSAugmentedAnnotationViewCache.h in Headers */,
 				A146535E1A6573AF0026843E /* BLSAugmentedAnnotationView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +304,7 @@
 				A12AE60C1A63E99500C03FAD /* Frameworks */,
 				A146535A1A6573980026843E /* Headers */,
 				A14653541A6571C30026843E /* Build Framework */,
-				23E254441A652EB400934863 /* ShellScript */,
+				23E254441A652EB400934863 /* Generate coverage file */,
 			);
 			buildRules = (
 			);
@@ -398,13 +416,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLSAugmentedControllerTests/Pods-BLSAugmentedControllerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		23E254441A652EB400934863 /* ShellScript */ = {
+		23E254441A652EB400934863 /* Generate coverage file */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Generate coverage file";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +493,7 @@
 				A12AE62E1A63EBE000C03FAD /* BLSAugmentedAnnotationView.m in Sources */,
 				A12AE62F1A63EBE000C03FAD /* BLSAugmentedViewController.m in Sources */,
 				A14653631A6663520026843E /* BLSAugmentedControllerHelpers.m in Sources */,
+				A146536A1A66816A0026843E /* BLSAugmentedAnnotationViewCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +503,7 @@
 			files = (
 				A14653651A6665E90026843E /* BLSAugmentedControllerHelpersTests.m in Sources */,
 				23E254461A6530EA00934863 /* BLSAugmentedViewControllerTests.m in Sources */,
+				A146536C1A66A9410026843E /* BLSAugmentedAnnotationViewCacheTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,8 +569,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -592,8 +611,6 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -613,6 +630,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = BLSAugmentedController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
@@ -636,6 +654,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -666,10 +686,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F80B807D7CC271B8F5169CCC /* Pods-BLSAugmentedControllerTests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -678,6 +701,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -685,14 +709,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 83A680E843CF1CB551E6B232 /* Pods-BLSAugmentedControllerTests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = BLSAugmentedControllerFrameworkTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "";
 			};
 			name = Release;
 		};

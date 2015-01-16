@@ -12,18 +12,23 @@
 
 @interface BLSAugmentedControllerHelpersTests : XCTestCase
 
+@property (nonatomic) CLLocationCoordinate2D szczecinCoordinate;
+@property (nonatomic) CLLocationCoordinate2D tokyoCoordinate;
+
+@property (nonatomic) double bearingAccuracy;
+@property (nonatomic) CLLocationDistance distanceAccuracy;
+
 @end
+
 
 @implementation BLSAugmentedControllerHelpersTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+    self.szczecinCoordinate = CLLocationCoordinate2DMake(53.428544, 14.552812);
+    self.tokyoCoordinate = CLLocationCoordinate2DMake(35.689487, 139.691706);
+    self.bearingAccuracy = 0.01;
+    self.distanceAccuracy = 10000;
 }
 
 - (void)testDegreesToRadians {
@@ -56,11 +61,14 @@
     XCTAssert(CGPointEqualToPoint(BLSCGPointAdd(p2, p2), CGPointMake(6, -8)));
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testBearingBetweenCoordinates {
+    XCTAssertEqualWithAccuracy(BLSBearingBetweenCoordinates(self.szczecinCoordinate, self.tokyoCoordinate), 0.743, self.bearingAccuracy);
+    XCTAssertEqualWithAccuracy(BLSBearingBetweenCoordinates(self.tokyoCoordinate, self.szczecinCoordinate), 5.764, self.bearingAccuracy);
+}
+
+- (void)testDistanceBetweenCoordinates {
+    XCTAssertEqualWithAccuracy(BLSDistanceBetweenCoordinates(self.szczecinCoordinate, self.tokyoCoordinate), 8790000, self.distanceAccuracy);
+    XCTAssertEqualWithAccuracy(BLSDistanceBetweenCoordinates(self.tokyoCoordinate, self.szczecinCoordinate), 8790000, self.distanceAccuracy);
 }
 
 @end

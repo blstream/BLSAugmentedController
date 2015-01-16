@@ -42,16 +42,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A12AE5FA1A63E8DE00C03FAD"
-               BuildableName = "BLSAugmentedControllerDemoTests.xctest"
-               BlueprintName = "BLSAugmentedControllerDemoTests"
-               ReferencedContainer = "container:BLSAugmentedController.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

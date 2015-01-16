@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BLSAugmentedAnnotationView.h"
-#import "BLSAugmentedAnnotation.h"
+#import <CoreMedia/CoreMedia.h>
+#import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
+@class BLSAugmentedAnnotationView;
+@protocol BLSAugmentedAnnotation;
 @protocol BLSAugmentedViewControllerDelegate;
+
 
 /**
  @enum BLSAugmentedViewControllerStyle
@@ -20,6 +24,7 @@ typedef NS_ENUM(NSUInteger, BLSAugmentedViewControllerStyle) {
     BLSAugmentedViewControllerStyleMap,     /**< Map with user location and annotations. */
     BLSAugmentedViewControllerStyleAR       /**< Augmented reality view from back camera with annotations. */
 };
+
 
 #pragma mark -
 /**
@@ -49,6 +54,11 @@ typedef NS_ENUM(NSUInteger, BLSAugmentedViewControllerStyle) {
  It is also used for calculating vertical position and scale of annotation view on augmented view.
  */
 @property (nonatomic) CLLocationDistance maxDistance;
+
+/**
+ Array of annotations currently managed by the view controller.
+ */
+@property (nonatomic, readonly) NSArray *annotations;
 
 
 #pragma mark - Managing Annottations
@@ -99,7 +109,7 @@ typedef NS_ENUM(NSUInteger, BLSAugmentedViewControllerStyle) {
 /**
  Returns a reusable annotation view located by its identifier.
  
- For performance reasons, you should generally reuse BLSAugmentedAnnotationView objects in your map views. As annotation views move offscreen, the map view moves them to an internally managed reuse queue. As new annotations move onscreen, and your code is prompted to provide a corresponding annotation view, you should always attempt to dequeue an existing view before creating a new one. Dequeueing saves time and memory during performance-critical operations such as scrolling.
+ For performance reasons, you should generally reuse BLSAugmentedAnnotationView objects. As annotation views move offscreen, the view controller moves them to an internally managed reuse queue. As new annotations move onscreen, and your code is prompted to provide a corresponding annotation view, you should always attempt to dequeue an existing view before creating a new one. Dequeueing saves time and memory during performance-critical operations such as scrolling.
  @param identifier A string identifying the annotation view to be reused. This string is the same one you specify when initializing the annotation view using the initWithAnnotation:reuseIdentifier: method.
  @return An annotation view with the specified identifier, or nil if no such object exists in the reuse queue.
  */

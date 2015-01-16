@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 BLStream Sp. z o.o. All rights reserved.
 //
 
-#import "BLSAugmentedAnnotationView.h"
+#import "BLSAugmentedController.h"
 
 @implementation BLSAugmentedAnnotationView
+
+- (instancetype)initWithAnnotation:(id<BLSAugmentedAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
+    NSParameterAssert([annotation conformsToProtocol:@protocol(BLSAugmentedAnnotation)]);
+    return [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+}
 
 @end
