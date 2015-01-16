@@ -177,7 +177,7 @@
 			children = (
 				A12AE5E41A63E8DD00C03FAD /* BLSAugmentedControllerDemo */,
 				A12AE6101A63E99500C03FAD /* BLSAugmentedController */,
-				A12AE61D1A63E99500C03FAD /* BLSAugmentedControlleTests */,
+				A12AE61D1A63E99500C03FAD /* BLSAugmentedControllerTests */,
 				A12AE5E31A63E8DD00C03FAD /* Products */,
 				23E254421A649CAB00934863 /* Frameworks */,
 				411C650A6006C6C2AEF220A0 /* Pods */,
@@ -239,7 +239,7 @@
 			path = BLSAugmentedControllerFramework;
 			sourceTree = "<group>";
 		};
-		A12AE61D1A63E99500C03FAD /* BLSAugmentedControlleTests */ = {
+		A12AE61D1A63E99500C03FAD /* BLSAugmentedControllerTests */ = {
 			isa = PBXGroup;
 			children = (
 				A12AE61E1A63E99500C03FAD /* Supporting Files */,
@@ -247,7 +247,7 @@
 				A146536B1A66A9410026843E /* BLSAugmentedAnnotationViewCacheTests.m */,
 				A14653641A6665E90026843E /* BLSAugmentedControllerHelpersTests.m */,
 			);
-			name = BLSAugmentedControlleTests;
+			name = BLSAugmentedControllerTests;
 			path = BLSAugmentedControllerFrameworkTests;
 			sourceTree = "<group>";
 		};
@@ -304,7 +304,7 @@
 				A12AE60C1A63E99500C03FAD /* Frameworks */,
 				A146535A1A6573980026843E /* Headers */,
 				A14653541A6571C30026843E /* Build Framework */,
-				23E254441A652EB400934863 /* Generate coverage file */,
+				23E254441A652EB400934863 /* Generate coverage file env */,
 			);
 			buildRules = (
 			);
@@ -416,14 +416,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLSAugmentedControllerTests/Pods-BLSAugmentedControllerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		23E254441A652EB400934863 /* Generate coverage file */ = {
+		23E254441A652EB400934863 /* Generate coverage file env */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Generate coverage file";
+			name = "Generate coverage file env";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

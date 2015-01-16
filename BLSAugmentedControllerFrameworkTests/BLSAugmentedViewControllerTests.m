@@ -24,6 +24,8 @@
 @end
 
 
+#pragma mark -
+
 @interface BLSAugmentedViewController ()
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -38,11 +40,11 @@
 @end
 
 
+#pragma mark -
+
 @interface BLSAugmentedViewControllerTests : XCTestCase <BLSAugmentedViewControllerDelegate>
 
 @property (nonatomic, strong) BLSAugmentedViewController *vc;
-@property (nonatomic, strong) id vcMock;
-
 @property (nonatomic, strong) BLSAugmentedAnnotationView *lastReturnedAnnotationView;
 
 @end
@@ -52,7 +54,11 @@
 
 - (void)setUp {
     [super setUp];
-    
+    self.vc = [[BLSAugmentedViewController alloc] init];
+    self.vc.delegate = self;
+}
+
+- (void)setUpWithMockLocation {
     CLLocation *location = [[CLLocation alloc] init];
     id locationMock = OCMPartialMock(location);
     OCMStub([locationMock coordinate]).andReturn(CLLocationCoordinate2DMake(10, 20));
@@ -60,22 +66,30 @@
     CLLocationManager *locationManager = OCMClassMock([CLLocationManager class]);
     OCMStub([locationManager location]).andReturn(location);
     
-    BLSAugmentedViewController *vc = [[BLSAugmentedViewController alloc] init];
-    vc.delegate = self;
-    self.vcMock = OCMPartialMock(vc);
-    OCMStub([self.vcMock locationManager]).andReturn(locationManager);
-    OCMStub([self.vcMock fieldOfView]).andReturn(M_PI_2); //90°
-    OCMStub([self.vcMock viewBearing]).andReturn(M_PI); //south
-    self.vc = vc;
+    id vcMock = OCMPartialMock(self.vc);
+    OCMStub([vcMock locationManager]).andReturn(locationManager);
+    OCMStub([vcMock fieldOfView]).andReturn(M_PI_2); //90°
+    OCMStub([vcMock viewBearing]).andReturn(M_PI); //south
+}
+
+- (void)setUpWithMapStyle {
+    self.vc.style = BLSAugmentedViewControllerStyleMap;
+    [self.vc view];
+}
+
+- (void)setUpWithArStyle {
+    self.vc.style = BLSAugmentedViewControllerStyleAR;
     [self.vc view];
 }
 
 - (void)tearDown {
     self.vc = nil;
-    self.vcMock = nil;
+//    self.vcMock = nil;
     self.lastReturnedAnnotationView = nil;
     [super tearDown];
 }
+
+#pragma mark - Tests
 
 - (void)testInitialValues {
     XCTAssertEqual(self.vc.style, BLSAugmentedViewControllerStyleMap);
@@ -93,8 +107,26 @@
     XCTAssertNoThrow([self.vc dequeueReusableAnnotationViewWithIdentifier:nil]);
 }
 
+- (void)testChangingStyle {
+    [self.vc view]; //loads default view (map view);
+    
+    MKMapView *mapView = self.vc.mapView;
+    [self setUpWithArStyle];
+    XCTAssertNotNil(self.vc.vrView);
+    XCTAssertEqualObjects(self.vc.vrView.superview, self.vc.view);
+    XCTAssertNil(mapView.superview);
+    
+    UIView *vrView = self.vc.vrView;
+    [self setUpWithMapStyle];
+    XCTAssertNotNil(self.vc.mapView);
+    XCTAssertEqualObjects(self.vc.mapView.superview, self.vc.view);
+    XCTAssertNil(vrView.superview);
+}
+
+#pragma mark MapView
+
 - (void)testMapLoadsProperly {
-    self.vc.style = BLSAugmentedViewControllerStyleMap;
+    [self setUpWithMapStyle];
     
     XCTAssertNotNil(self.vc.mapView, @"map should be loaded");
     XCTAssert([self.vc.mapView isKindOfClass:[MKMapView class]], @"map should be of mkmapview class");
@@ -104,7 +136,7 @@
 }
 
 - (void)testAnnotationsAreAddedToAndRemovedFromMap {
-    self.vc.style = BLSAugmentedViewControllerStyleMap;
+    [self setUpWithMapStyle];
     BLSTestAnnotation *annotation = [self createAnnotationAtCoordinate:CLLocationCoordinate2DMake(0, 20)];
     id mapViewMock = OCMPartialMock(self.vc.mapView);
     
@@ -116,15 +148,18 @@
 }
 
 - (void)testDequeueFromMapView {
-    self.vc.style = BLSAugmentedViewControllerStyleMap;
+    [self setUpWithMapStyle];
+
     id mapViewMock = OCMPartialMock(self.vc.mapView);
     
     [self.vc dequeueReusableAnnotationViewWithIdentifier:@"identifier"];
     OCMVerify([mapViewMock dequeueReusableAnnotationViewWithIdentifier:@"identifier"]);
 }
 
+#pragma mark VrView
+
 - (void)testVrViewLoadsProperly {
-    self.vc.style = BLSAugmentedViewControllerStyleAR;
+    [self setUpWithArStyle];
     
     XCTAssertNotNil(self.vc.vrView, @"vrView should be loaded");
     XCTAssert([self.vc.view.subviews indexOfObject:self.vc.vrView] != NSNotFound, @"vrView should be added as subview");
@@ -132,15 +167,18 @@
 }
 
 - (void)testVrViewIsBeingRefreshed {
-    OCMExpect([self.vcMock refreshARAnnotationViewsTimerTimeout:[OCMArg any]]);
+    id vcMock = OCMPartialMock(self.vc);
+    OCMExpect([vcMock refreshARAnnotationViewsTimerTimeout:[OCMArg any]]);
     
     self.vc.style = BLSAugmentedViewControllerStyleAR;
+    [self.vc view];
     
-    OCMVerifyAllWithDelay(self.vcMock, 1);
+    OCMVerifyAllWithDelay(vcMock, 1);
 }
 
 - (void)testAnnotationViewsAreAddedToVrView {
-    self.vc.style = BLSAugmentedViewControllerStyleAR;
+    [self setUpWithMockLocation];
+    [self setUpWithArStyle];
     BLSTestAnnotation *annotation = [self createAnnotationAtCoordinate:CLLocationCoordinate2DMake(9.999, 20)];
     id vrViewMock = OCMPartialMock(self.vc.vrView);
     OCMExpect([vrViewMock addSubview:[OCMArg isKindOfClass:[BLSAugmentedAnnotationView class]]]);
@@ -151,7 +189,8 @@
 }
 
 - (void)testAnnotationViewsAreRemovedFromVrViewIfRemovedFromViewController {
-    self.vc.style = BLSAugmentedViewControllerStyleAR;
+    [self setUpWithMockLocation];
+    [self setUpWithArStyle];
     BLSTestAnnotation *annotation = [self createAnnotationAtCoordinate:CLLocationCoordinate2DMake(9.999, 20)];
 
     id vrViewMock = OCMPartialMock(self.vc.vrView);
@@ -159,12 +198,9 @@
     [self.vc addAnnotation:annotation];
     OCMVerifyAllWithDelay(vrViewMock, 1);
 
-    id annotationViewMock = OCMPartialMock(self.lastReturnedAnnotationView);
-    OCMExpect([annotationViewMock removeFromSuperview]);
-    
     [self.vc removeAnnotation:annotation];
     
-    OCMVerifyAllWithDelay(annotationViewMock, 1);
+    OCMVerify([self.lastReturnedAnnotationView removeFromSuperview]);
 }
 
 - (void)testAnnotationsAreRemovedFromVrViewIfDistanceRequirementIsNotMet {
@@ -194,6 +230,57 @@
     OCMVerify([self.vc.viewCache clearUnusedViews]);
 }
 
+- (void)testInvalidatingAnnotationRemovesAnnotationViewFromSuperviewAndCache {
+    [self setUpWithMockLocation];
+    [self setUpWithArStyle];
+    BLSTestAnnotation *annotation = [self createAnnotationAtCoordinate:CLLocationCoordinate2DMake(9.999, 20)];
+    
+    id vrViewMock = OCMPartialMock(self.vc.vrView);
+    OCMExpect([vrViewMock addSubview:[OCMArg isKindOfClass:[BLSAugmentedAnnotationView class]]]);
+    [self.vc addAnnotation:annotation];
+    OCMVerifyAllWithDelay(vrViewMock, 1);
+    
+    
+    OCMExpect([vrViewMock addSubview:[OCMArg isKindOfClass:[BLSAugmentedAnnotationView class]]]);
+    
+    [self.vc invalidateAnnotation:annotation];
+    
+    OCMVerify([self.lastReturnedAnnotationView removeFromSuperview]);
+    OCMVerify([self.vc.viewCache removeViewForAnnotation:annotation]);
+    OCMVerifyAllWithDelay(vrViewMock, 1);
+}
+
+- (void)testInvalidationgMultipleAnnotations {
+    BLSTestAnnotation *annotation1 = [[BLSTestAnnotation alloc] init];
+    BLSTestAnnotation *annotation2 = [[BLSTestAnnotation alloc] init];
+    
+    [self.vc invalidateAnnotations:@[annotation1, annotation2]];
+    
+    OCMVerify([self.vc invalidateAnnotation:annotation1]);
+    OCMVerify([self.vc invalidateAnnotation:annotation2]);
+}
+
+- (void)testAddingMultipleAnnotations {
+    BLSTestAnnotation *annotation1 = [[BLSTestAnnotation alloc] init];
+    BLSTestAnnotation *annotation2 = [[BLSTestAnnotation alloc] init];
+    
+    [self.vc addAnnotations:@[annotation1, annotation2]];
+    
+    OCMVerify([self.vc addAnnotation:annotation1]);
+    OCMVerify([self.vc addAnnotation:annotation2]);
+}
+
+- (void)testRemovingMultipleAnnotations {
+    BLSTestAnnotation *annotation1 = [[BLSTestAnnotation alloc] init];
+    BLSTestAnnotation *annotation2 = [[BLSTestAnnotation alloc] init];
+    
+    [self.vc removeAnnotations:@[annotation1, annotation2]];
+    
+    OCMVerify([self.vc removeAnnotation:annotation1]);
+    OCMVerify([self.vc removeAnnotation:annotation2]);
+}
+
+#pragma mark Helpers
 
 - (BLSTestAnnotation *)createAnnotationAtCoordinate:(CLLocationCoordinate2D)coordinate {
     BLSTestAnnotation *annotation = [[BLSTestAnnotation alloc] init];
