@@ -10,6 +10,7 @@
 #import <CoreMedia/CoreMedia.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MapKit/MapKit.h>
 
 @class BLSAugmentedAnnotationView;
 @protocol BLSAugmentedAnnotation;
@@ -60,6 +61,19 @@ typedef NS_ENUM(NSUInteger, BLSAugmentedViewControllerStyle) {
  */
 @property (nonatomic, readonly) NSArray *annotations;
 
+
+#pragma mark - Map position
+/**
+ Change map region to a region defined by 2 coordinates: top left and bottom right/
+ @param topLeftCoordinate top left coordinate of the desired region
+ @param bottomRightCoordinate bottom right coordinate of the desired region
+ @param animated YES if the change should be animated, NO if the change should be immediate.
+ 
+ @returns region that was applied to the map
+ */
+- (MKCoordinateRegion)setMapRegionWithTopLeftCoordinate:(CLLocationCoordinate2D)topLeftCoordinate
+                               andBottomRightCoordinate:(CLLocationCoordinate2D)bottomRightCoordinate
+                                               animated:(BOOL)animated;
 
 #pragma mark - Managing Annottations
 /**

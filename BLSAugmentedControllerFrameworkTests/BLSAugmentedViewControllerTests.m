@@ -147,6 +147,21 @@
     OCMVerify([mapViewMock removeAnnotation:annotation]);
 }
 
+- (void)testRegionIsSetonMap {
+    [self setUpWithMapStyle];
+
+    id mapViewMock = OCMPartialMock(self.vc.mapView);
+
+    self.vc.mapView = mapViewMock;
+    
+    MKCoordinateRegion region = [self.vc setMapRegionWithTopLeftCoordinate:CLLocationCoordinate2DMake(10, 20)
+                                                  andBottomRightCoordinate:CLLocationCoordinate2DMake(20, 40)
+                                                                  animated:NO];
+    OCMVerify([mapViewMock setRegion:region animated:NO]);
+    XCTAssertEqualWithAccuracy (region.center.latitude, 15, 0.001);
+    XCTAssertEqualWithAccuracy(region.center.longitude, 30, 0.001);
+}
+
 - (void)testDequeueFromMapView {
     [self setUpWithMapStyle];
 

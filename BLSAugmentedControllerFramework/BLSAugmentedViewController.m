@@ -259,6 +259,21 @@ static const float kBLSARViewUpdateInterval = 1.0/60.0;
 }
 
 
+#pragma mark - map region
+- (MKCoordinateRegion)setMapRegionWithTopLeftCoordinate:(CLLocationCoordinate2D)topLeftCoordinate
+                               andBottomRightCoordinate:(CLLocationCoordinate2D)bottomRightCoordinate
+                                               animated:(BOOL)animated {
+    MKCoordinateRegion region;
+    region.center.latitude = topLeftCoordinate.latitude - (topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 0.5;
+    region.center.longitude = topLeftCoordinate.longitude + (bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 0.5;
+    region.span.latitudeDelta = fabs(topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 1.1;
+    region.span.longitudeDelta = fabs(bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 1.1;
+    
+    region = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:region animated:animated];
+    return region;
+}
+
 #pragma mark - Helpers
 
 - (CGFloat)fieldOfView {
