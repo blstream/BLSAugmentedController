@@ -27,3 +27,4 @@ Pods/
 
 .DS_Store
 env.sh
+BLSAugmentedController.framework
